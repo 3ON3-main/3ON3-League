@@ -443,23 +443,54 @@
             </div>
         </div>
     </section>
-<!--- REGISTRATION FORM --->
-<section id="register" class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="glass-card rounded-3xl p-8 sm:p-12 relative border border-cyan-500/30 shadow-2xl text-center">
-        <div class="max-w-xl mx-auto mb-6">
-            <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest block mb-2">Secure Your Spot</span>
-            <h2 class="text-4xl font-heading font-bold uppercase text-white mb-4">Player & Goalie Registration</h2>
-            <p class="text-sm text-gray-300 mb-8">Click the button below to fill out our Google Form for player and goalie registration. Total capacity is strictly limited to 4 teams of 6 players and 4 goalies total.</p>
-            <a href="https://forms.gle/cmweR5vuq1vpBsJN6" target="_blank" class="inline-flex items-center justify-center space-x-3 px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 text-gray-950 font-heading font-bold uppercase tracking-wider text-lg rounded-xl shadow-xl shadow-cyan-500/30 hover:scale-105 transition-all">
-                <i class="fa-solid fa-file-lines text-xl"></i>
-                <span>Open Registration Form</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
-            </a>
+
+    <section id="register" class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-card rounded-3xl p-8 sm:p-12 relative border border-cyan-500/30 shadow-2xl">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest block mb-2">Secure Your Spot</span>
+                <h2 class="text-4xl font-heading font-bold uppercase text-white mb-2">Player & Goalie Registration</h2>
+                <p class="text-xs text-gray-300">Fill out the form below. Total capacity is strictly limited to 4 teams and 4 goalies.</p>
+            </div>
+
+            <!-- Formspree HTML Form Submission -->
+            <form action="https://formspree.io/f/xnpnoypz" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Full Name</label>
+                        <input type="text" name="name" required placeholder="John Doe" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Position</label>
+                        <select name="position" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                            <option value="Player">Player (1,800 HKD)</option>
+                            <option value="Goalie">Goalie (900 HKD)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Email Address</label>
+                        <input type="email" name="email" required placeholder="john@example.com" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Phone Number / WhatsApp</label>
+                        <input type="tel" name="phone" required placeholder="+852 0000 0000" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Team Preference / Notes (Optional)</label>
+                    <input type="text" name="team" placeholder="Request to play with friends or specific team..." class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-gray-950 font-heading font-bold uppercase tracking-wider text-base rounded-xl shadow-lg shadow-cyan-500/25 hover:scale-[1.01] transition-transform">
+                    Submit Registration
+                </button>
+            </form>
         </div>
-    </div>
-</section>
-  
-<!--- PAYMENT INFORMATION --->
+    </section>
+
     <section id="payment" class="py-24 bg-gray-900/50 border-y border-cyan-500/20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
@@ -499,13 +530,11 @@
         </div>
     </section>
 
-
-
     <section id="organizers" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest block mb-2">Leadership</span>
             <h2 class="text-4xl sm:text-5xl font-heading font-bold uppercase text-white mb-3">League Organizers</h2>
-            <p class="text-gray-300 text-sm">Dedicated hockey enthusiasts bringing top-tier 3-on-3 action to the community.</p>
+            <p class="text-gray-300 text-sm">Dedicated hockey enthusiasts bringing 3-on-3 action to the beginner and intermediate hockey community.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -519,8 +548,7 @@
 
             <!-- Organizer 2: Yau Nam Hei -->
             <div class="glass-card rounded-2xl p-6 text-center group hover:-translate-y-2 transition-transform duration-300">
-                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-orange-500/20 to-red-600/20 border-2 border-orange-500/40 flex items-center justify-center text-orange-400 font-heading text-3xl font-bold mb-6 shadow-lg">
-                    YN
+                <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-orange-500/20 to-red-600/20 border-2 border-orange-500/40 flex items-center justify-center text-orange-400 font-heading text-3xl font-bold mb-6 shadow-lg"><img src="/NamHei.jpeg" alt="Yau Nam Hei Profile Picture" width=150>
                 </div>
                 <h3 class="text-2xl font-heading font-bold text-white mb-1">Yau Nam Hei</h3>
             </div>
