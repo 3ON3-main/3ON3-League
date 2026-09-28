@@ -452,57 +452,56 @@
                 <p class="text-xs text-gray-300">Fill out the form below. Total capacity is strictly limited to 4 teams and 4 goalies.</p>
             </div>
 
-            <!-- Note about Google Drive / Sheets Integration -->
-            <div class="mb-6 p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-300 leading-relaxed flex items-start space-x-3">
-                <i class="fa-solid fa-circle-info text-cyan-400 text-sm mt-0.5"></i>
-                <div>
-                    <strong>Google Drive & Sheets Integration Guide:</strong> 
-                    To have submissions automatically save into your Google Drive/Sheets folder, you can hook this form up in 2 minutes using a free <a href="https://developers.google.com/apps-script" target="_blank" class="underline font-bold text-white hover:text-cyan-200">Google Apps Script Web App</a>. (Instructions below form).
-                </div>
+            <!-- Formspree Integration Form Container -->
+            <div data-fs-success class="hidden text-center py-8">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-5xl mb-4"></i>
+                <h3 class="text-2xl font-heading font-bold text-white">Registration Received Successfully!</h3>
+                <p class="text-sm text-gray-300 mt-2">Thank you! Please proceed with the payment via FPS or Bank Transfer to confirm your spot.</p>
+                <a href="#payment" class="inline-block mt-6 px-6 py-3 bg-cyan-500 text-gray-950 font-heading font-bold uppercase text-xs rounded-xl">View Payment Details</a>
             </div>
+            
+            <div data-fs-error class="hidden mb-4 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-xs text-red-400"></div>
 
-            <form id="registration-form" onsubmit="handleRegistration(event)" class="space-y-6">
+            <form id="my-form" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Full Name</label>
-                        <input type="text" id="reg-name" required placeholder="John Doe" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                        <input type="text" id="name" name="name" required placeholder="John Doe" data-fs-field class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                        <span data-fs-error="name" class="text-xs text-red-400 mt-1 block"></span>
                     </div>
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Position</label>
-                        <select id="reg-position" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                        <select id="position" name="position" data-fs-field class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
                             <option value="Player">Player (1,800 HKD)</option>
                             <option value="Goalie">Goalie (900 HKD)</option>
                         </select>
+                        <span data-fs-error="position" class="text-xs text-red-400 mt-1 block"></span>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Email Address</label>
-                        <input type="email" id="reg-email" required placeholder="john@example.com" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                        <input type="email" id="email" name="email" required placeholder="john@example.com" data-fs-field class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                        <span data-fs-error="email" class="text-xs text-red-400 mt-1 block"></span>
                     </div>
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Phone Number / WhatsApp</label>
-                        <input type="tel" id="reg-phone" required placeholder="+852 0000 0000" class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                        <input type="tel" id="phone" name="phone" required placeholder="+852 0000 0000" data-fs-field class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                        <span data-fs-error="phone" class="text-xs text-red-400 mt-1 block"></span>
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Team Preference / Notes (Optional)</label>
-                    <input type="text" id="reg-team" placeholder="Request to play with friends or specific team..." class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                    <input type="text" id="team" name="team" placeholder="Request to play with friends or specific team..." data-fs-field class="w-full bg-gray-950 border border-gray-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-colors">
+                    <span data-fs-error="team" class="text-xs text-red-400 mt-1 block"></span>
                 </div>
 
-                <button type="submit" id="submit-btn" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-gray-950 font-heading font-bold uppercase tracking-wider text-base rounded-xl shadow-lg shadow-cyan-500/25 hover:scale-[1.01] transition-transform">
+                <button type="submit" data-fs-submit-btn class="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-gray-950 font-heading font-bold uppercase tracking-wider text-base rounded-xl shadow-lg shadow-cyan-500/25 hover:scale-[1.01] transition-transform">
                     Submit Registration
                 </button>
             </form>
-
-            <div id="reg-success" class="hidden text-center py-8">
-                <i class="fa-solid fa-circle-check text-emerald-400 text-5xl mb-4"></i>
-                <h3 class="text-2xl font-heading font-bold text-white">Registration Received Successfully!</h3>
-                <p class="text-sm text-gray-300 mt-2">Please proceed with the payment via FPS or Bank Transfer to confirm your spot.</p>
-                <a href="#payment" class="inline-block mt-6 px-6 py-3 bg-cyan-500 text-gray-950 font-heading font-bold uppercase text-xs rounded-xl">View Payment Details</a>
-            </div>
         </div>
     </section>
 
@@ -603,6 +602,13 @@
         </div>
     </footer>
 
+    <!-- Formspree Ajax SDK Script -->
+    <script>
+        window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+        formspree('initForm', { formElement: '#my-form', formId: 'xnpnoypz' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -630,41 +636,6 @@
                 console.error('Failed to copy text', err);
             }
             document.body.removeChild(textArea);
-        }
-
-        // Registration form handler with Google Drive / Google Sheets integration support
-        async function handleRegistration(e) {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Submitting...';
-
-            const formData = {
-                name: document.getElementById('reg-name').value,
-                position: document.getElementById('reg-position').value,
-                email: document.getElementById('reg-email').value,
-                phone: document.getElementById('reg-phone').value,
-                team: document.getElementById('reg-team').value,
-                timestamp: new Date().toLocaleString()
-            };
-
-            const GOOGLE_SCRIPT_URL = ""; 
-
-            if (GOOGLE_SCRIPT_URL) {
-                try {
-                    await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(formData)
-                    });
-                } catch (err) {
-                    console.error("Submission error:", err);
-                }
-            }
-
-            document.getElementById('registration-form').classList.add('hidden');
-            document.getElementById('reg-success').classList.remove('hidden');
         }
     </script>
 </body>
